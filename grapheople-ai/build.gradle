@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.3'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.grapheople'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '21'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'com.google.adk:google-adk:0.2.0'
+        implementation 'com.google.adk:google-adk-dev:0.2.0'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
