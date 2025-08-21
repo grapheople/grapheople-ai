@@ -34,9 +34,6 @@ public class MultiToolAgent {
                 .instruction(
                         "You are a helpful agent who can answer user questions about the time and weather"
                                 + " in a city.")
-                .tools(
-                        FunctionTool.create(MultiToolAgent.class, "getCurrentTime"),
-                        FunctionTool.create(MultiToolAgent.class, "getWeather"))
                 .build();
     }
 
