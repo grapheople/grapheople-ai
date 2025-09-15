@@ -100,6 +100,8 @@ public class ApiController {
         }
     }
 
+    
+
     private Session createNewSession(String userId) {
         try {
             // 유니크한 세션 이름 생성
