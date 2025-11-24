@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.3'
+    id 'org.springframework.boot' version '4.0.0'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -16,8 +16,8 @@ repositories {
 dependencies {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
-        implementation 'com.google.adk:google-adk:0.2.0'
-        implementation 'com.google.adk:google-adk-dev:0.2.0'
+        implementation 'com.google.adk:google-adk:0.3.0'
+        implementation 'com.google.adk:google-adk-dev:0.3.0'
         testCompileOnly 'org.projectlombok:lombok'
         testAnnotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.projectlombok:lombok:1.18.30'

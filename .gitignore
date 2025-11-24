@@ -317,3 +317,5 @@ src/main/resources/static/spa
 .aider*
 
 aws/
+
+.env

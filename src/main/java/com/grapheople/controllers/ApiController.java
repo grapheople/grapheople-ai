@@ -9,12 +9,13 @@ import com.google.genai.types.Content;
 import com.google.genai.types.Part;
 import com.grapheople.utils.JsonUtil;
 import io.reactivex.rxjava3.core.Flowable;
+import jakarta.annotation.PostConstruct;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+
+import jakarta.annotation.PreDestroy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -30,6 +31,7 @@ public class ApiController {
     @PostConstruct
     public void init() {
         BaseAgent agent = PaxAgent.initAgent();
+        System.out.println("Initialized PaxAgent" );
         this.runner = new InMemoryRunner(agent);
     }
 
@@ -61,8 +63,6 @@ public class ApiController {
         try {
             // 기존 세션이 있으면 재사용, 없으면 새로 생성
             session = getOrCreateSession(userId);
-
-            System.out.println(JsonUtil.toPrettyJsonString(session));
 
             // 사용자 메시지 생성
             Content userMsg = Content.fromParts(Part.fromText(question));
@@ -111,7 +111,6 @@ public class ApiController {
                     .createSession(sessionName, userId)
                     .blockingGet();
 
-            System.out.println("Created new session: " + session.id() + " for user: " + userId);
             // Save for later retrieval
             sessionsByUser.put(userId, session);
             return session;

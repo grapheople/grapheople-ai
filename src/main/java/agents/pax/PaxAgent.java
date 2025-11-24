@@ -7,13 +7,13 @@ import agents.tools.HealthTools;
 
 public class PaxAgent {
 
-    private static String USER_ID = "student";
     private static String NAME = "pax_agent";
 
     // The run your agent with Dev UI, the ROOT_AGENT should be a global public static variable.
     public static BaseAgent ROOT_AGENT = initAgent();
 
     public static BaseAgent initAgent() {
+
         return LlmAgent.builder()
                 .name(NAME)
                 .model("gemini-2.0-flash")

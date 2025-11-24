@@ -1,0 +1,1 @@
+GET {{host}}//api/agent/ask?question=배고파
